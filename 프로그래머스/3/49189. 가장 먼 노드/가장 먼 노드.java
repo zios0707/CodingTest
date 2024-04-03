@@ -21,7 +21,7 @@ class Solution {
         queue.add(1);
         bfs();
         
-        return (int) dist.values().stream().flatMapToInt(IntStream::of).filter(i -> i == max).count();
+        return (int) dist.values().stream().flatMapToInt(IntStream::of).filter(i -> i == max).count(); // <<-- forEach문 써서 if 문으로 count 변수를 활용했는데 놀랍게도 안됐음. 근데 stream 쓰니까 잘굴러감.
     }
 
     private void bfs() {
