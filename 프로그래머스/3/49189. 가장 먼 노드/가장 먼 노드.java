@@ -8,7 +8,7 @@ class Solution {
     private Integer max = 0;
     public int solution(int n, int[][] edge) {
         graph.add(new ArrayList<>());
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= n; i += 1) {
             graph.add(new ArrayList<>());
             dist.put(i, Integer.MAX_VALUE);
         }
@@ -18,11 +18,10 @@ class Solution {
         }
         dist.put(1, 0);
 
-
         queue.add(1);
         bfs();
-
-        return ((int) dist.values().stream().flatMapToInt(IntStream::of).filter(i -> i == max).count());
+        
+        return (int) dist.values().stream().flatMapToInt(IntStream::of).filter(i -> i == max).count();
     }
 
     private void bfs() {
